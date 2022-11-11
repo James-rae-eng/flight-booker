@@ -14,7 +14,7 @@ airports = Airport.create([
   ])
 
 Flight.create(departure_airport_id: airports.first.id, arrival_airport_id: airports.last.id, 
-              departure: DateTime.new(2022, 11, 15, 10, 0), duration: 2.hours)
+              departure: DateTime.new(2022, 11, 15, 10, 0), duration: 2.5)
 Flight.create(departure_airport_id: airports.last.id, arrival_airport_id: airports.first.id, 
-              departure: DateTime.new(2022, 11, 17, 15, 30), duration: 3.hours)
+              departure: DateTime.new(2022, 11, 17, 15, 30), duration: 3.0)
 
