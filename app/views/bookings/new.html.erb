@@ -1,0 +1,34 @@
+<h1> Confirm your details</h1>
+
+<h2>Flight summary:</h2>
+<h4>
+    <%= @flight.departure_airport.code %> -
+    <%= @flight.arrival_airport.code %>
+    Departure: <%= @flight.departure %>
+    Flight duration:<%= @flight.duration %>
+    No. passengers: <%= @number_of_passengers.to_s %>
+</h4>
+
+<h2>Passenger details:</h2>
+
+<%= form_with model: @booking, local: true do |booking| %>
+     <% x = 1%>
+    <%= booking.fields_for :passengers do |passenger| %>
+        <%= "Passenger #{x}:" %><br/>
+        <%= passenger.label :name %> <br/>
+        <%= passenger.text_field :name %><br/>
+
+        <%= passenger.label :email %> <br/>
+        <%= passenger.text_field :email %><br/>
+
+         <% x += 1%>
+    <% end %>
+
+    <%= booking.hidden_field :number_of_passengers, value: @number_of_passengers%>
+
+    <%= booking.hidden_field :flight_id, value: params[:flight] %>
+
+    <div>
+        <%= booking.submit "Confirm & purchase", class: 'book_btn', id: 'book_btn'%>
+    </div>
+<% end %>

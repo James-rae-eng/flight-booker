@@ -1,0 +1,32 @@
+<h1> Your booking </h1>
+
+<h2>Booking ref: 00000 </h2>
+
+<h2>Flight summary:</h2>
+<p>
+    <%= @booking.flight.departure_airport.code %> -
+    <%= @booking.flight.arrival_airport.code %>
+    Departure: <%= @booking.flight.departure %>
+    Flight duration:<%= @booking.flight.duration %>
+</p>
+
+<h2>Passenger details:</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Passenger name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @booking.passengers.each_with_index do |passenger, idex| %>
+            <tr>
+                <td><%= passenger.name %></td>
+                <td><%= passenger.email %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<br/>
+
+<%= link_to "Back to search", root_path %>

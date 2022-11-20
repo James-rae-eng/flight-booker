@@ -30,8 +30,8 @@
                 <%= flight.departure %>
                 <%= flight.duration %>
             <% end %>
-
-            <%= hidden_field_tag :number_of_passengers, params[:flight][:number_of_passengers] %>
+            
+            <%= hidden_field_tag :number_of_passengers, params[:number_of_passengers] %>
             <div>
                 <%= submit_tag("Book flight", class: 'book_btn', id: 'book_btn')%>
             </div>
