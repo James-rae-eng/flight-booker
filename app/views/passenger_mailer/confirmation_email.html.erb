@@ -4,9 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to flightbooker.com, <%= @passenger.name %></h1>
+    <h1>Welcome to flightbooker.com, <%= @booking.passengers.pluck(:name)[0].to_s %></h1>
     <p>
       You have successfully made a booking.<br>
+    </p>
+    <p>
+      Your booking ID is: <%=@booking.id%> <br>
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.

@@ -1,8 +1,10 @@
 
-Welcome to flightbooker.com, <%= @passenger.name %>
+Welcome to flightbooker.com, <%= @booking.passengers.pluck(:name)[0].to_s %>
 ===============================================
 
 You have successfully made a booking.
+
+Your booking ID is: <%=@booking.id%>
 
 To login to the site, just follow this link: <%= @url %>.
 
